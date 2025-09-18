@@ -1,8 +1,12 @@
+import com.sun.security.jgss.GSSUtil;
+
+import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.Random;
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         // THIS IS MY FIRST JAVA PROGRAM
 
@@ -231,7 +235,7 @@ public class Main {
         number = Math.min(1,34);
         System.out.println(number);
 
-         */
+
 
         // Math Pythagorean theory game
         Scanner scanner = new Scanner(System.in);
@@ -285,11 +289,548 @@ public class Main {
 
 
 
+        Scanner scanner = new Scanner(System.in);
+        double a;
+        double b;
+        double c;
 
+        System.out.print("Enter number1 ");
+        a = scanner.nextDouble();
+
+        System.out.print("Enter number2 ");
+        b = scanner.nextDouble();
+
+        c = a / b;
+        System.out.printf("Result is %.1f\n", c);
+
+        scanner.close();
+
+        String name = "Max";
+        int age = 20;
+        double height = 170.5;
+        boolean isStudent = true;
+
+        System.out.printf("%s is %d years old and he is %f cm height, btw he is a student: %b\n", name, age, height, isStudent);
+
+        double price = 12.3293;
+        double price1 = 9404545.333;
+        double price3 = -4545940.333;
+        double price4 = -4545940.333;
+        int id1 = 2;
+        int id2 = 344;
+        int id3 = 22223;
+
+        System.out.printf("1 price: % .1f\n", price);
+        System.out.printf("2 price: % ,.2f\n", price1);
+        System.out.printf("3 price: % (,.2f\n", price3);
+        System.out.printf("4 price: % .1f\n", price4);
+        System.out.printf("1: %05d\n2: %05d\n3: %05d\n", id1, id2, id3);
+        System.out.printf("1: %-5d\n2: %-5d\n3: %-5d\n", id1, id2, id3)
+
+
+
+        Scanner scanner = new Scanner(System.in);
+
+        double principal;
+        double rate;
+        int timesCompounded;
+        int years;
+        double amount;
+
+        System.out.print("Enter the principal ");
+        principal = scanner.nextDouble();
+
+        System.out.print("Enter the rate in % ");
+        rate = scanner.nextDouble() / 100;
+
+        System.out.print("Enter the number compounded per year ");
+        timesCompounded = scanner.nextInt();
+
+        System.out.print("Enter the number of years ");
+        years = scanner.nextInt();
+
+        amount = principal * Math.pow(1 + rate / timesCompounded, timesCompounded * years);
+        System.out.printf("The total amount after %d is %f", years, amount);
+
+
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Please enter your name: ");
+        String name = scanner.nextLine();
+
+        //int length = name.length();
+        //char letter = name.charAt(1);
+        //int index = name.indexOf("r");
+        //int lastIndex = name.lastIndexOf("a");
+        //name = name.toUpperCase();
+
+        if(name.isEmpty()){
+            System.out.println("It's empty");
+        }
+        else if(name.contains(" ")){
+            System.out.println("Please enter your name without any spaces");
+        }
+        else if(name.equalsIgnoreCase("password")) {
+            System.out.println("Your name can't be password");
+        }
+        else{
+            System.out.printf("Hello %s", name);
+        }
+
+
+        //System.out.println(name);
+
+
+        Scanner scanner = new Scanner(System.in);
+        String email;
+        String name;
+        String domain;
+
+        System.out.print("Enter your email: ");
+        email = scanner.nextLine();
+        if(email.contains("@") && email.contains(".com")){
+            name = email.substring(0,email.indexOf("@"));
+            domain = email.substring(email.indexOf("@") + 1);
+            System.out.println(name);
+            System.out.print(domain);
+        }
+        else{
+            System.out.println("Please enter correct email");
+        }
+
+
+        Scanner scanner = new Scanner(System.in);
+
+        double weight;
+        double newWeight;
+        int choice;
+
+        System.out.print("Welcome to calculator\nWhat would you like to convert (1/2)? Kg to Lb or Lb to Kg? ");
+        choice = scanner.nextInt();
+        System.out.print("Please enter the weight: ");
+        weight = scanner.nextDouble();
+
+        if(choice == 1){
+            newWeight = weight * 2.2046226218;
+            System.out.printf("The weight in Lb is %.2f lb",newWeight);
+        }
+        else if(choice == 2){
+            newWeight = weight * 0.45359237;
+            System.out.printf("The weight in Kg is %.2f kg", newWeight);
+        }
+        else{
+            System.out.println("You've entered not a valid choice ");
+        }
+        scanner.close();
+
+
+
+        int number = 40;
+        int number1 = 8;
+        int time = 9;
+        String ifTrue = (number >= 50) ? "true" : "false";
+        String evenOrOdd = (number1 % 2 == 0) ? "even": "odd";
+        String pmOrAm = (time >= 12) ? "PM" : "AM";
+        System.out.println(pmOrAm);
+
+
+
+        Scanner scanner = new Scanner(System.in);
+
+        double temperature;
+        double newTemperature;
+        String unit;
+
+
+        System.out.print("Enter the temperature: ");
+        temperature = scanner.nextDouble();
+        System.out.print("Enter the units (C or F) ");
+        unit = scanner.next().toUpperCase();
+        newTemperature = (unit.equals("C")) ? (temperature - 32) * 5 / 9 : (temperature * 5 / 39) + 32;
+        System.out.printf("Your new temperature is %.1f %s", newTemperature, unit);
+        scanner.close();
+
+
+
+        Scanner scanner = new Scanner(System.in);
+        String day;
+
+        System.out.print("Enter the day of the week: ");
+        day = scanner.nextLine().toLowerCase();
+
+        switch(day){
+            case "monday", "tuesday", "wednesday", "thursday", "friday" -> System.out.printf("%s is a weekday", day);
+            case "saturday", "sunday" -> System.out.printf("%s is a weekend", day);
+            default -> System.out.printf("%s isn't a day", day);
+        }
+        scanner.close();
+
+
+
+
+
+        Scanner scanner = new Scanner(System.in);
+
+        double firstNumber;
+        double secondNumber;
+        char operator;
+        double result = 0;
+        boolean validOperation = true;
+
+        System.out.print("Enter the 1 number: ");
+        firstNumber = scanner.nextDouble();
+        System.out.print("Enter the operator (+,-,*,/,^): ");
+        operator = scanner.next().charAt(0);
+        System.out.print("Enter the 2 number: ");
+        secondNumber = scanner.nextDouble();
+        switch(operator){
+            case '+' -> result = firstNumber + secondNumber;
+            case '-' -> result = firstNumber - secondNumber;
+            case '*' -> result = firstNumber * secondNumber;
+            case '/' -> {
+                if(secondNumber == 0){
+                    System.out.println("You can't divide by 0");
+                    validOperation = false;
+                }
+                else{
+                    result = firstNumber / secondNumber;
+                }
+            }
+            case '^' -> result = Math.pow(firstNumber, secondNumber);
+            default -> {
+                System.out.print("Enter a valid choice");
+                validOperation = false;
+            }
+        }
+        if(validOperation){
+            System.out.printf("Your result is %.1f",result);
+        }
+        scanner.close();
+
+
+        int num1 = 3;
+        boolean isStudent = true;
+        int num2 = 10;
+        int temperature = 25;
+        if(num1 >=3 && !isStudent && num2 <=11){
+            System.out.println("Pass");
+        }
+        else{
+            System.out.println("Fail");
+        }
+        if(temperature >=30 || temperature <=10){
+            System.out.println("The weather is rly bad");
+        }
+        else{
+            System.out.println("It's quite good");
+        }
+
+
+        Scanner scanner = new Scanner(System.in);
+
+        String userName;
+        System.out.print("Enter your Username: ");
+        userName = scanner.nextLine();
+        if(userName.contains(" ") || userName.contains("_")){
+            System.out.println("Your username mustn't contain any spaces or underscores");
+        }
+        else if(userName.length() < 4 || userName.length() > 12){
+            System.out.println("Your username must be between 4-12 characters");
+        }
+        else{
+            System.out.printf("Hello, %s", userName);
+        }
+
+        scanner.close();
+
+
+
+
+
+        Scanner scanner  = new Scanner(System.in);
+
+        String name = "";
+        int age = 0;
+
+        while(name.isEmpty()){
+            System.out.print("Enter your name: ");
+            name = scanner.nextLine();
+        }
+        do{
+            System.out.print("Enter your age: ");
+            age = scanner.nextInt();
+        }while(age <= 0);
+        System.out.println("Hello " + name) ;
+        System.out.println("You are " + age +" years old") ;
+        scanner.close();
+
+
+
+
+
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        int userNumber;
+        int min = 1;
+        int max = 100;
+        int randomNumber = random.nextInt(min, max+1);
+        int attempts = 0;
+
+        System.out.printf("Guess number game\nYou have to guess a number between %d-%d\nI'll guide you through the game\n", min,max);
+
+        do{
+            System.out.print("Enter the number: ");
+            userNumber = scanner.nextInt();
+            attempts++;
+
+            int difference = Math.abs(randomNumber-userNumber);
+
+            if(userNumber == randomNumber){
+                System.out.print("Congratulations! You won within " + attempts + " attempts, the number was " + randomNumber);
+            }
+            else{
+                if(difference >= 14){
+                    System.out.println("Way to far...");
+                }
+                else if(difference >= 5){
+                    System.out.println("Getting warmer...");
+                }
+                else if(difference >= 3){
+                    System.out.println("Very close! ");
+                }
+                else{
+                    System.out.println("You're almost there");
+                }
+            }
+            if(userNumber < randomNumber){
+                System.out.print("The number is higher\n");
+            }
+            else if (userNumber > randomNumber){
+                System.out.print("The number is lower\n");
+            }
+        }while(randomNumber != userNumber);
+
+
+
+        scanner.close();
+
+
+        //for(int i = 0; i <= 10; i++){
+        //for(int i = 10; i >= 0; i--){
+        //for(int i = 0; i < 15; i+= 2){
+        for(int i = 15; i > -2; i-= 1){
+            //System.out.println("Hello");
+            System.out.println(i);
+
+        }
+
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter how many times you want to loop: ");
+        int max = scanner.nextInt();
+        for(int i = 1; i <= max; i++){
+            System.out.println(i);
+        }
+        System.out.print("Enter from which number you want to count down: ");
+        int userNumber = scanner.nextInt();
+        for(int i = userNumber; i > 0; i-- ){
+            System.out.println(i);
+
+        }
+        System.out.println("Happy new year!");
+
+        scanner.close();
+
+
+        for(int num = 0; num < 11; num++){
+            if(num ==5){
+                break;
+            }
+            System.out.println(num + " ");
+        }
+        for(int i = 20; i > 0; i-=1){
+            if(i == 13){
+                System.out.println("Skip it ");
+                continue;
+            }
+            System.out.print(i +" ");
+        }
+
+
+        for(int j = 1; j <=3; j++) {
+            for (int i = 0; i <= 10; i++) {
+                System.out.print(i);
+            }
+            System.out.println();
+
+        }
+
+        Scanner scanner = new Scanner(System.in);
+        int rows;
+        int columns;
+        char simbol;
+        System.out.print("Enter the simbol: ");
+        simbol = scanner.next().charAt(0);
+        System.out.print("Enter the amount of rows: ");
+        rows = scanner.nextInt();
+        System.out.print("Enter the amount of columns: ");
+        columns = scanner.nextInt();
+        for(int j = 0; j < rows; j++){
+            for(int i = 0; i < columns; i++){
+                System.out.print(simbol);
+            }
+            System.out.println();
+        }
+
+        scanner.close();
+
+
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        String name;
+        do {
+            System.out.print("Enter your name: ");
+            name = scanner.nextLine();
+        } while(name.isEmpty());
+        int age = random.nextInt(1, 21);
+        happyBirthday(name,age);
+
+        //System.out.print(cube(3));
+        //System.out.print(getFullName("Bob", "Bobnik"));
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your age: ");
+        int age = scanner.nextInt();
+
+        if(ageCheck(age)){
+            System.out.print("Yes, you can sign up");
+        }
+        else{
+            System.out.print("You have to be 18+");
+        }
+
+
+        //System.out.print(adding(2,3));
+        //System.out.print(adding(2,3, 4,5));
+        System.out.print(pizza("black bread", "mozzarella", "beef/chicken"));
 
 
     }
+    //some methods
+    static void happyBirthday(String name, int age) {
+        System.out.println("Happy Birthday to you");
+        System.out.printf("Happy Birthday, dear %s\n", name);
+        System.out.printf("Happy Birthday, you are %d years old\n", age);
+        System.out.println("Happy Birthday to you");
+    }
+    static double square(double number){
+        return number * number;
+    }
+    static double cube(double number){
+        return number * number * number;
+    }
+    static String getFullName(String firstName, String secondName){
+        return firstName + " "+ secondName;
+    }
+    static boolean ageCheck(int age){
+        return age >= 18;
+
+    }
+    static double adding(int a, int b){
+        return a+b;
+
+    }
+    static double adding(int a, int b, int c, int d){
+        System.out.println();
+        return a+b*c-d;
+    }
+    //overloaded methods
+    static String pizza(String breadTipe){
+        return breadTipe + " Pizza";
+    }
+    static String pizza(String breadTipe, String cheeseTipe){
+        return breadTipe + " "+ cheeseTipe + " Pizza";
+    }
+    static String pizza(String breadTipe, String cheeseTipe, String meat){
+        return meat + " " +breadTipe + " "+ cheeseTipe + " Pizza";
+
+         */
+
+        //JAVA BANKING PROGRAM FOR BEGINNERS
+        double balance = 0;
+        boolean isRunning = true;
+        int choice;
+
+        System.out.println("********************");
+        System.out.println("Java Banking Program");
+
+        while (isRunning) {
+            System.out.println("1. Show balance");
+            System.out.println("2. Deposit");
+            System.out.println("3. Withdraw");
+            System.out.println("4. Exit");
+            System.out.println("Enter the option (1-4): ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1 -> showBalance(balance);
+                case 2 -> balance += deposit();
+                case 3 -> balance -= withdraw(balance);
+                case 4 -> {
+                    isRunning = false;
+                    System.out.println("Have a nice day!");
+                }
+                default -> System.out.println("Invalid option. Pls try again!");
+            }
+        }
+        scanner.close();
+    }
+
+    static void showBalance(double balance) {
+        System.out.println("********************");
+        System.out.printf("$%.2f\n", balance);
+        System.out.println("********************");
+    }
+    static double deposit(){
+        double amount;
+        System.out.print("Enter the deposit amount: ");
+        amount = scanner.nextDouble();
+        if(amount <0){
+            System.out.print("You can't deposit the negative number");
+            return 0;
+        }
+        else{
+            return amount;
+
+        }
+    }
+    static double withdraw(double balance){
+        double amount;
+        System.out.println("Enter the withdraw amount: ");
+        amount = scanner.nextDouble();
+        if(amount < 0){
+            System.out.print("You can't withdraw the negative amount");
+            return 0;
+        }
+        else if(balance < amount){
+            System.out.print("You don't have enough money");
+            return 0;
+        }
+        else{
+            return amount;
+        }
+    }
+
+
 
 }
+
+
+
+
+
+
+
+
+
 
 
