@@ -4,7 +4,6 @@ import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.Random;
 public class Main {
-    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -753,7 +752,7 @@ public class Main {
     static String pizza(String breadTipe, String cheeseTipe, String meat){
         return meat + " " +breadTipe + " "+ cheeseTipe + " Pizza";
 
-         */
+
 
         //JAVA BANKING PROGRAM FOR BEGINNERS
         double balance = 0;
@@ -782,7 +781,6 @@ public class Main {
                 default -> System.out.println("Invalid option. Pls try again!");
             }
         }
-        scanner.close();
     }
 
     static void showBalance(double balance) {
@@ -817,6 +815,154 @@ public class Main {
         }
         else{
             return amount;
+        }
+
+
+
+        //JAVA RESTAURANT PROGRAM
+        int choice;
+        double bill = 0;
+        boolean isWorking = true;
+        System.out.println("*************");
+        System.out.println("Welcome to Java Restaurant");
+        System.out.println("*************");
+
+        while(isWorking){
+            System.out.println("1.Show menu\n2.Order Item\n3.Show bill\n4.Exit");
+            System.out.print("Enter a choice: ");
+            choice = scanner.nextInt();
+            switch(choice){
+                case 1 -> showMenu();
+                case 2 -> bill = orderItem(bill);
+                case 3 -> showBill(bill);
+                case 4 -> {
+                    System.out.printf("Have a good day! Your total bill is $%.2f", bill);
+                    isWorking = false;
+                }
+                default -> System.out.println("Invalid choice");
+            }
+        }
+
+
+    }
+    static void showMenu(){
+        System.out.println("--Menu--");
+        System.out.println("1.Burger - $5.50\n2.Pizza - $8.00\n3.Soda - $1.50\n4.Ice cream - $3.00");
+        System.out.println("*************");
+    }
+    static double orderItem(double bill){
+        int orderChoice;
+        double burger = 5.50;
+        double pizza = 8.00;
+        double soda = 1.50;
+        double iceCream = 3.00;
+        System.out.println("What would you like to order (1-4): ");
+        orderChoice = scanner.nextInt();
+        switch(orderChoice){
+            case 1 -> {
+                System.out.println("You ordered a Burger");
+                bill+=burger;
+            }
+            case 2 -> {
+                System.out.println("You ordered a Pizza");
+                bill+=pizza;
+            }
+            case 3 -> {
+                System.out.println("You ordered a Soda");
+                bill+=soda;
+            }
+            case 4 -> {
+                System.out.println("You ordered an Ice cream");
+                bill+=iceCream;
+            }
+            default -> System.out.println("Invalid choice");
+        }
+        return bill;
+    }
+    static void showBill(double bill){
+        System.out.printf("Your total bill is $%.2f\n", bill);
+
+         */
+
+        //JAVA DICE ROLLING PROGRAM
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        int numberOfDice;
+        int total = 0;
+
+        System.out.println("*************");
+        System.out.println("DICE ROLLING");
+        System.out.println("*************");
+
+        System.out.print("Enter the number of dice to be rolled: ");
+        numberOfDice = scanner.nextInt();
+        while(numberOfDice<=0 || numberOfDice >=10){
+            System.out.println("Invalid number");
+            System.out.print("Enter the number of dice to be rolled: ");
+            numberOfDice = scanner.nextInt();
+        }
+
+        for(int i = 0; i < numberOfDice; i++){
+            int roll = random.nextInt(1,7);
+            total+=roll;
+            showAscii(roll);
+            System.out.println("You got " + roll + (roll == 1 ? " die" : " dices"));
+        }
+        System.out.print("the total is " + total);
+        scanner.close();
+
+    }
+    static void showAscii(int roll){
+        String dice1 = """
+                 _______
+                |       |
+                |   ●   |
+                |       |
+                 ‾‾‾‾‾‾‾
+                """;
+        String dice2 = """
+                 _______
+                | ●     |
+                |       |
+                |     ● |
+                 ‾‾‾‾‾‾‾
+                
+                """;
+        String dice3 = """
+                 _______
+                | ●     |
+                |   ●   |
+                |     ● |
+                 ‾‾‾‾‾‾‾
+                """;
+        String dice4 = """
+                 _______
+                | ●   ● |
+                |       |
+                | ●   ● |
+                 ‾‾‾‾‾‾‾
+                """;
+        String dice5= """
+                 _______
+                | ●   ● |
+                |   ●   |
+                | ●   ● |
+                 ‾‾‾‾‾‾‾
+                """;
+        String dice6 = """
+                 _______
+                | ●   ● |
+                | ●   ● |
+                | ●   ● |
+                 ‾‾‾‾‾‾‾
+                """;
+        switch(roll){
+            case 1 -> System.out.println(dice1);
+            case 2 -> System.out.println(dice2);
+            case 3 -> System.out.println(dice3);
+            case 4 -> System.out.println(dice4);
+            case 5 -> System.out.println(dice5);
+            case 6 -> System.out.println(dice6);
         }
     }
 
