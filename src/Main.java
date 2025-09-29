@@ -1,6 +1,7 @@
 import com.sun.security.jgss.GSSUtil;
 
 import java.sql.SQLOutput;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
 public class Main {
@@ -882,7 +883,7 @@ public class Main {
     static void showBill(double bill){
         System.out.printf("Your total bill is $%.2f\n", bill);
 
-         */
+
 
         //JAVA DICE ROLLING PROGRAM
         Scanner scanner = new Scanner(System.in);
@@ -964,6 +965,60 @@ public class Main {
             case 5 -> System.out.println(dice5);
             case 6 -> System.out.println(dice6);
         }
+
+         */
+
+
+        String[] fruits = {"apple", "coconut","banana", "pea"};
+        fruits[3] = "pineapple";
+        System.out.println(fruits[2]);
+        int numberOfFruits = fruits.length;
+        System.out.println(numberOfFruits);
+        /*
+        for(int i = 0; i < fruits.length; i++){
+            System.out.println(fruits[i]);
+        }
+        for(String fruit : fruits){
+            System.out.println(fruit);
+        }
+
+         */
+        Arrays.sort(fruits);
+        for(int i = 0; i<fruits.length; i++){
+            System.out.print(fruits[i] + " ");
+        }
+        Arrays.fill(fruits, "lemon");
+        for(String fruit : fruits){
+            System.out.println(fruit);
+        }
+        String[] vegetables = new String[3];
+        vegetables[0] = "tomato";
+        vegetables[1] = "onion";
+        vegetables[2] = "potato";
+        for(String vegetable : vegetables){
+            System.out.println(vegetable);
+        }
+        System.out.println(vegetables.length);
+
+        Scanner scanner = new Scanner(System.in);
+        String[] orderList;
+        int num;
+        System.out.print("Enter the number of items: ");
+        num = scanner.nextInt();
+        scanner.nextLine();
+        orderList = new String[num];
+        System.out.println(orderList.length);
+        for(int i = 0; i<orderList.length; i++){
+            System.out.print("Enter the item: ");
+            orderList[i] = scanner.nextLine();
+        }
+        for(String order : orderList){
+            System.out.println(order);
+        }
+        scanner.close();
+
+
+
     }
 
 
